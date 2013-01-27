@@ -172,7 +172,8 @@ int main(int argc, char *argv[])
     }
 
     //[OUTPUT: DG-SERIAL]
-    printf("\n[OUTPUT: DG-SERIAL] Running on mesh: %s\n", argv[1]);
+    printf("[OUTPUT: DG-SERIAL]\n");
+    printf("[OUTPUT: DG-SERIAL] Running on mesh: %s\n", argv[1]);
     printf("[OUTPUT: DG-SERIAL] Runtime of importing mesh: %f seconds\n", 
             diff(timer1load,timer2load).tv_sec + diff(timer1load,timer2load).tv_nsec * 0.000000001);
     printf("[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: %f seconds\n", 
@@ -187,6 +188,7 @@ int main(int argc, char *argv[])
 
     printf("[OUTPUT: DG-SERIAL] Total runtime: %f seconds\n", 
             diff(timer1load,timer2load).tv_sec + diff(timer1load,timer2load).tv_nsec * 0.000000001);
+    printf("[OUTPUT: DG-SERIAL]\n");
     return 0;
 }
 
