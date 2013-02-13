@@ -25,3 +25,4 @@ wait
 eval "cd .."
 eval "rm -f *~"
 eval "cat ./test/*/*.out > $OUTFILE"
+

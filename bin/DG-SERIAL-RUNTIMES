@@ -1,63 +1,81 @@
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection1024.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.119066 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.001146 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.001920 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 4.668532 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.094239 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.001008 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.001655 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.471554 number of instances called: 468
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 0.774401 number of instances called: 468
+[OUTPUT: DG-SERIAL] Total runtime: 3.413601 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection16384.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 3.004638 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.012358 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.026382 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 123.841418 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 3.389641 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.011283 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.023439 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 21.618815 number of instances called: 1916
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 44.909794 number of instances called: 1916
+[OUTPUT: DG-SERIAL] Total runtime: 108.291594 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection16.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.001810 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000014 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.001625 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000015 seconds
 [OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000014 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 0.033917 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.000674 number of instances called: 46
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 0.000629 number of instances called: 46
+[OUTPUT: DG-SERIAL] Total runtime: 0.030076 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection256.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.026164 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000660 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000397 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 1.317452 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.027396 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000309 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000241 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.070344 number of instances called: 228
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 0.054857 number of instances called: 228
+[OUTPUT: DG-SERIAL] Total runtime: 0.592665 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection256tr.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.083295 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000558 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000975 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 2.581722 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.050609 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000430 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000704 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.277887 number of instances called: 646
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 0.454463 number of instances called: 646
+[OUTPUT: DG-SERIAL] Total runtime: 1.790011 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection4096.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.910989 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.003455 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.007306 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 22.646982 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.720083 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.002960 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.006275 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 2.818142 number of instances called: 952
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 5.974172 number of instances called: 952
+[OUTPUT: DG-SERIAL] Total runtime: 17.416019 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection4.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.000685 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.000694 seconds
 [OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000004 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000005 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 0.045722 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000004 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.000058 number of instances called: 16
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 0.000070 number of instances called: 16
+[OUTPUT: DG-SERIAL] Total runtime: 0.010020 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: advection64.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.014248 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000054 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000052 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 0.412397 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.015660 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000066 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.000164 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.006965 number of instances called: 106
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 0.017391 number of instances called: 106
+[OUTPUT: DG-SERIAL] Total runtime: 0.232171 seconds
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL]
 [OUTPUT: DG-SERIAL] Running on mesh: airfoil2d.msh
-[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.424407 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.001255 seconds
-[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.003177 seconds
-[OUTPUT: DG-SERIAL] Total runtime: 6.523209 seconds
+[OUTPUT: DG-SERIAL] Runtime of importing mesh: 0.281914 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: 0.000932 seconds
+[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: 0.002749 seconds
+[OUTPUT: DG-SERIAL] Time spent in Volume: 0.641129 number of instances called: 688
+[OUTPUT: DG-SERIAL] Time spent in Boundary: 1.891333 number of instances called: 688
+[OUTPUT: DG-SERIAL] Total runtime: 5.088730 seconds
 [OUTPUT: DG-SERIAL]

@@ -16,11 +16,7 @@ extern double ** allocateMatrix(int n);
 extern void invmat (double **, double **, int);
 extern void freeMatrix( double **v);
 
-extern double timeComputeVolumeCalls;
-extern int numComputeVolumeCalls;
-
-extern double timeComputeBoundaryCalls;
-extern int numComputeBoundaryCalls;
+extern double timeRK;
 
 timespec timer1, timer2;
 
@@ -290,6 +286,10 @@ double RungeKutta4::advanceInTime(double t, double dt)
 double RungeKuttaTVD2::advanceInTime(double t, double dt)
 /*  TVD Second  Order Runge-Kutta integration.*/
 {
+	//timer start
+	clock_gettime(CLOCK_MONOTONIC, &timer1);
+
+
   double  dt_over_detJac,dof;
   int i,j,k,fSizek;
   double dx;
@@ -392,7 +392,12 @@ double RungeKuttaTVD2::advanceInTime(double t, double dt)
     }   
   
   if (theLimiter) limit(t+dt);
-  //computeL2ProjInCutCells();
+
+    //update timer infos
+    clock_gettime(CLOCK_MONOTONIC, &timer2);
+    timeRK += diff(timer1,timer2).tv_sec;
+    timeRK += diff(timer1,timer2).tv_nsec * 0.000000001;
+
   return resid;
 }
 
@@ -1290,9 +1295,6 @@ double Multigrid::advanceInTime(double t, double dt)
 
 void TimeIntegrator::assembleVolume(double t)
 {
-	//timer start
-	clock_gettime(CLOCK_MONOTONIC, &timer1);
-
 	mMesh::iter it;
 	const mMesh::iter mesh_begin = theMesh->begin(n);
 	const mMesh::iter mesh_end=theMesh->end(n);
@@ -1302,19 +1304,10 @@ void TimeIntegrator::assembleVolume(double t)
 		DGCell *cell = (DGCell*)m->getCell();
 		cell->computeVolumeContribution(t);		
 	}
+}
 
-		//update timer infos
-	clock_gettime(CLOCK_MONOTONIC, &timer2);
-	timeComputeVolumeCalls += diff(timer1,timer2).tv_sec;
-	timeComputeVolumeCalls += diff(timer1,timer2).tv_nsec * 0.000000001;
-	numComputeVolumeCalls++;
-	}
-
-	void TimeIntegrator::assembleBoundary(double t)
-	{  
-	//timer start
-	clock_gettime(CLOCK_MONOTONIC, &timer1);
-
+void TimeIntegrator::assembleBoundary(double t)
+{  
 	mMesh::iter it;
 	const mMesh::iter  mesh_begin = theMesh->begin(n-1);
 	const mMesh::iter  mesh_end=theMesh->end(n-1);
@@ -1345,12 +1338,6 @@ void TimeIntegrator::assembleVolume(double t)
 	  //DGCell *cell = (DGBoundaryCell*)m->getCell();
 	  (*itt)->setToZero(t);
 	}
-	
-	//update timer infos
-	clock_gettime(CLOCK_MONOTONIC, &timer2);
-	timeComputeBoundaryCalls += diff(timer1,timer2).tv_sec;
-	timeComputeBoundaryCalls += diff(timer1,timer2).tv_nsec * 0.000000001;
-	numComputeBoundaryCalls++;
 }
 
 void TimeIntegrator::limit(double time)

@@ -88,8 +88,8 @@ void ScalarPb (mDGMesh *theMesh, int order)
   VelocityOne v;
   ExactOne e;
 
-  DGLineSensor sensor1  ("t1.dat",mPoint(-1,0),mPoint(1,0),256,1.0);
-  //DGLineSensor sensor2  ("t2.dat",mPoint(-1,-1),mPoint(1,1),256,.1);
+  /*DGLineSensor sensor1  ("t1.dat",mPoint(-1,0),mPoint(1,0),256,1.0);*/
+  
   //DGPointSensor sensor2 ("t2.dat",mPoint(0.0,0.0),1.0);
   
   //DGVertexLimiter myLimiter;
@@ -100,11 +100,12 @@ void ScalarPb (mDGMesh *theMesh, int order)
   
   //DGAnalysis analysis(theMesh,&theLaw,&myLimiter,order);
    DGAnalysis analysis(theMesh,&theLaw,0,order);
-   analysis.addSensor(&sensor1);
-  // analysis.addSensor(&sensor2);
+   
+/*   analysis.addSensor(&sensor1);
+  
   DGGmshSensor sensor0  ("squar",0.1);
-  analysis.addSensor(&sensor0);
-   //analysis.addSensor(&sensor2);
+  analysis.addSensor(&sensor0);*/
+   
   analysis.run();
 }
 

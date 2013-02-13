@@ -26,13 +26,8 @@ extern void Riemann2D (mDGMesh *theMesh,int wall, int order);
 extern void TalkExample (mDGMesh *theMesh,int wall, int order);
 extern void DaleExample (mDGMesh *theMesh, int wall, int);
 
-double timeComputeVolumeCalls = 0;
-int numComputeVolumeCalls = 0;
-
-double timeComputeBoundaryCalls = 0;
-int numComputeBoundaryCalls = 0;
-
-timespec timer1load, timer2load;
+timespec timer1load, timer2load, timertmp;
+double timeRK = 0;
 
 timespec diff(timespec start, timespec end);
 
@@ -50,6 +45,15 @@ int main(int argc, char *argv[])
   clock_t t2 = clock();
   printf("Mesh read in %f seconds\n", double (t2-t1)/CLOCKS_PER_SEC);
   printf("creating connectivities ...\n");
+
+
+
+/*    printf("[OUTPUT: DG-SERIAL] Running on mesh: %s\n", argv[1]);
+    clock_gettime(CLOCK_MONOTONIC, &timer2load);
+    printf("[OUTPUT: DG-SERIAL] Runtime of importing mesh (before edges): %f seconds\n", 
+    diff(timer1load,timer2load).tv_sec + diff(timer1load,timer2load).tv_nsec * 0.000000001);
+    clock_gettime(CLOCK_MONOTONIC, &timertmp);*/
+
 
   switch (atoi(argv[2]))
     {
@@ -92,17 +96,44 @@ int main(int argc, char *argv[])
       theMesh->createCellBoundaries(dim,dim-1); //creating edges
 	  t2 = clock();
       printf("Edges created in %e seconds\n", double (t2-t1)/CLOCKS_PER_SEC);
+
+
+       /* clock_gettime(CLOCK_MONOTONIC, &timer2load);
+        printf("[OUTPUT: DG-SERIAL] Runtime of creating edges: %f seconds\n", 
+            diff(timertmp,timer2load).tv_sec + diff(timertmp,timer2load).tv_nsec * 0.000000001);
+        clock_gettime(CLOCK_MONOTONIC, &timertmp);*/
+
+
       t1=clock();
 	  theMesh->createConnections(dim-1,dim); //create poiters to cells from cell boundaries
 	  //      theMesh->createConnections(0,dim); //connect faces to vertices  // needed for VertLimiter
 	  // needed for reconstructing curved boundaries:
+
 	  theMesh->createConnections(0,dim-1);
 	  //if (dim==2) theMesh->createConnections(0,1);  //create pointers to edges from vertices   
      // if (dim==3) theMesh->createConnections(1,2);   // create pointers to faces from edges 
 	  t2 = clock();
       printf("Connections created in %e seconds\n", double (t2-t1)/CLOCKS_PER_SEC);
 
+
+
+       /* clock_gettime(CLOCK_MONOTONIC, &timer2load);
+        printf("[OUTPUT: DG-SERIAL] Runtime of creating connections: %f seconds\n", 
+            diff(timertmp,timer2load).tv_sec + diff(timertmp,timer2load).tv_nsec * 0.000000001);
+        clock_gettime(CLOCK_MONOTONIC, &timertmp);*/
+
+
+
        theMesh->setPeriodicBC(dim);
+
+
+
+      /*  clock_gettime(CLOCK_MONOTONIC, &timer2load);
+        printf("[OUTPUT: DG-SERIAL] Runtime of setPeriodicBC: %f seconds\n", 
+            diff(timertmp,timer2load).tv_sec + diff(timertmp,timer2load).tv_nsec * 0.000000001);
+        clock_gettime(CLOCK_MONOTONIC, &timertmp);*/
+
+
 	  printf("%d cells \n", theMesh->size(dim));
       printf("%d boundaries ...\n",theMesh->size(dim-1));
       break;
@@ -176,14 +207,14 @@ int main(int argc, char *argv[])
     printf("[OUTPUT: DG-SERIAL] Running on mesh: %s\n", argv[1]);
     printf("[OUTPUT: DG-SERIAL] Runtime of importing mesh: %f seconds\n", 
             diff(timer1load,timer2load).tv_sec + diff(timer1load,timer2load).tv_nsec * 0.000000001);
-    printf("[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: %f seconds\n", 
+    /*printf("[OUTPUT: DG-SERIAL] Average runtime of computeVolumeContribution: %f seconds\n", 
         timeComputeVolumeCalls / numComputeVolumeCalls);
     printf("[OUTPUT: DG-SERIAL] Average runtime of computeBoundaryContribution: %f seconds\n", 
         timeComputeBoundaryCalls / numComputeBoundaryCalls);
-
-    printf("%f %d %f %d\n", timeComputeVolumeCalls, numComputeVolumeCalls, 
-        timeComputeBoundaryCalls, numComputeBoundaryCalls);
-
+    printf("[OUTPUT: DG-SERIAL] Time spent in Volume: %f number of instances called: %d\n", timeComputeVolumeCalls, numComputeVolumeCalls);
+    printf("[OUTPUT: DG-SERIAL] Time spent in Boundary: %f number of instances called: %d\n", timeComputeBoundaryCalls, numComputeBoundaryCalls);
+*/
+    printf("[OUTPUT: DG-SERIAL] Time spent in RK %f\n", timeRK);
     clock_gettime(CLOCK_MONOTONIC, &timer2load);
 
     printf("[OUTPUT: DG-SERIAL] Total runtime: %f seconds\n", 

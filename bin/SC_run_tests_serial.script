@@ -10,6 +10,7 @@ DG="DG-Serial"
 MESHDIR="test-supercomputer"
 OUTFILE="DG-SERIAL-RUNTIMES"
 
+eval "module load gcc"
 eval "rm -f $OUTFILE"
 eval "cd $MESHDIR"
 
